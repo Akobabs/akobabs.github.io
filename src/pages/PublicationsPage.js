@@ -18,7 +18,7 @@ function PublicationsPage() {
                 <p>While awaiting my publications, check out some of my recent posts on LinkedIn to learn more about my work and ongoing research.</p>
                 <div className="linkedin-post">
                     <h4>Update on XAI Laboratory Research – Mar 2025</h4>
-                    <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:placeholder1" height="500" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+                    <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7318665402132107264" height="1341" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
                     <p><a href="https://www.linkedin.com/in/akorede-adejare-ademola-082105273/recent-activity/" target="_blank">View on LinkedIn</a></p>
                 </div>
                 {/* Add other LinkedIn posts as needed */}
