@@ -66,155 +66,81 @@ nav {
   background: #000; /* Black background */
   border: none;
   font-size: 1.8rem; /* Larger icon for better visibility */
-  color: #fff; /* White icon color for contrast */
+  color: #fff; /* White icon color */
   cursor: pointer;
   padding: 0.5rem 0.8rem; /* Increased padding for tap area */
   border-radius: 4px; /* Rounded corners */
   z-index: 1002; /* Ensure it stays above other elements */
-  line-height: 1; /* Ensure icon alignment */
+  display: flex; /* Flex layout for icon and text */
+  align-items: center;
+  gap: 0.5rem; /* Space between icon and text */
 }
 
 .hamburger i {
   display: block; /* Ensure icon is visible */
 }
 
+.hamburger span {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem; /* Size for "Menu" text */
+  color: #fff; /* White text */
+  text-transform: uppercase;
+}
+
 .nav-links {
   display: flex;
   gap: 1.5rem;
+  transition: opacity 0.3s ease; /* Smooth transition for dropdown */
 }
 
 .nav-links.active {
   display: flex; /* For mobile, this will be styled in media query */
 }
 
-/* ... Other styles ... */
-
-/* Responsive Design */
-
-/* Tablets (768px and below) */
-@media (max-width: 768px) {
-  /* Navigation */
-  .nav-container {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem;
-      position: relative;
-  }
-
-  .site-title {
-      font-size: 1.4rem;
-      text-align: left;
-  }
-
-  .hamburger {
-      display: block; /* Show hamburger icon on tablets and mobile */
-  }
-
-  .nav-links {
-      display: none; /* Hide links by default on mobile */
-      position: absolute;
-      top: 100%; /* Position below the nav bar */
-      left: 0;
-      right: 0;
-      background: #fff;
-      flex-direction: column;
-      align-items: center;
-      padding: 1rem 0;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      z-index: 1001;
-  }
-
-  .nav-links.active {
-      display: flex; /* Show links when menu is toggled */
-  }
-
-  nav ul li a {
-      font-size: 1rem;
-      padding: 0.8rem 1rem;
-      width: 100%;
-      text-align: center;
-  }
-
-  /* Dark Mode Toggle */
-  .dark-mode-toggle {
-      top: 10px;
-      right: 50px; /* Adjusted to avoid overlap with hamburger */
-      padding: 0.5rem 1rem;
-      font-size: 0.9rem;
-  }
-
-  .dark-mode-toggle i {
-      font-size: 1rem;
-  }
-
-  .dark-mode-toggle span {
-      font-size: 0.9rem;
-  }
-
-  /* ... Other styles ... */
-
-  /* Dark Mode Adjustments for Mobile */
-  .dark-mode .nav-links {
-      background: #2a2a2a;
-  }
-
-  .dark-mode .nav-links li a {
-      color: #ccc;
-  }
-
-  .dark-mode .nav-links li a:hover {
-      background: #333;
-  }
-
-  .dark-mode .hamburger {
-      background: #333; /* Slightly lighter black in dark mode */
-      color: #fff; /* Keep icon white for visibility */
-  }
+nav ul li {
+  display: inline-block;
 }
 
-/* Mobile Phones (480px and below) */
-@media (max-width: 480px) {
-  /* Navigation */
-  .nav-container {
-      padding: 0.5rem;
-  }
+nav ul li a {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  color: #333;
+  transition: color 0.3s ease;
+}
 
-  .site-title {
-      font-size: 1.2rem;
-  }
+nav ul li a:hover {
+  color: #00c4cc;
+}
 
-  .hamburger {
-      font-size: 1.5rem; /* Slightly smaller on mobile */
-      padding: 0.4rem 0.6rem;
-  }
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 0.5rem 1rem;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Roboto Mono', monospace;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1001; /* Ensure it stays above other elements */
+  transition: background 0.3s ease;
+}
 
-  .nav-links {
-      padding: 0.5rem 0;
-  }
+.dark-mode-toggle:hover {
+  background: #555;
+}
 
-  .nav-links li a {
-      font-size: 0.9rem;
-      padding: 0.6rem 1rem;
-  }
+.dark-mode-toggle i {
+  font-size: 1rem;
+}
 
-  /* Dark Mode Toggle */
-  .dark-mode-toggle {
-      top: 10px;
-      right: 40px; /* Adjusted for smaller screens */
-      padding: 0.4rem 0.8rem;
-      font-size: 0.8rem;
-  }
-
-  .dark-mode-toggle i {
-      font-size: 0.9rem;
-  }
-
-  .dark-mode-toggle span {
-      font-size: 0.8rem;
-  }
-
-  /* ... Other styles ... */
+.dark-mode-toggle span {
+  font-size: 0.9rem;
 }
 
 /* Hero Section */
@@ -1229,7 +1155,7 @@ body.dark-mode {
   }
 
   .hamburger {
-      display: block; /* Show hamburger icon on tablets and mobile */
+      display: flex; /* Show hamburger icon on tablets and mobile */
   }
 
   .nav-links {
@@ -1244,10 +1170,13 @@ body.dark-mode {
       padding: 1rem 0;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       z-index: 1001;
+      opacity: 0; /* For transition effect */
+      transition: opacity 0.3s ease; /* Smooth fade-in */
   }
 
   .nav-links.active {
       display: flex; /* Show links when menu is toggled */
+      opacity: 1; /* Fade-in effect */
   }
 
   nav ul li a {
@@ -1260,7 +1189,7 @@ body.dark-mode {
   /* Dark Mode Toggle */
   .dark-mode-toggle {
       top: 10px;
-      right: 50px; /* Adjusted to avoid overlap with hamburger */
+      right: 70px; /* Adjusted to avoid overlap with hamburger */
       padding: 0.5rem 1rem;
       font-size: 0.9rem;
   }
@@ -1444,7 +1373,12 @@ body.dark-mode {
   }
 
   .dark-mode .hamburger {
-      color: #ccc;
+      background: #333; /* Slightly lighter black in dark mode */
+      color: #fff; /* Keep icon white */
+  }
+
+  .dark-mode .hamburger span {
+      color: #fff; /* Ensure "Menu" text remains white in dark mode */
   }
 }
 
@@ -1460,8 +1394,12 @@ body.dark-mode {
   }
 
   .hamburger {
-      font-size: 1.3rem;
-      padding: 0.4rem;
+      font-size: 1.5rem; /* Slightly smaller on mobile */
+      padding: 0.4rem 0.6rem;
+  }
+
+  .hamburger span {
+      font-size: 0.9rem; /* Smaller text on mobile */
   }
 
   .nav-links {
@@ -1476,7 +1414,7 @@ body.dark-mode {
   /* Dark Mode Toggle */
   .dark-mode-toggle {
       top: 10px;
-      right: 40px; /* Adjusted for smaller screens */
+      right: 60px; /* Adjusted for smaller screens */
       padding: 0.4rem 0.8rem;
       font-size: 0.8rem;
   }

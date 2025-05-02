@@ -13,9 +13,10 @@ function Header() {
             <nav>
                 <div className="nav-container">
                     <Link to="/" className="site-title">ADEMOLA, Akorede Adejare</Link>
-                    {/* Hamburger Icon */}
+                    {/* Hamburger Icon with "Menu" Text */}
                     <button className="hamburger" onClick={toggleMenu}>
                         <i className={isMenuOpen ? 'fas fa-times' : 'fas fa-bars'}></i>
+                        <span>{isMenuOpen ? 'Close' : 'Menu'}</span>
                     </button>
                     {/* Navigation Links */}
                     <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
